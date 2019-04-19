@@ -1,0 +1,22 @@
+A stream is an abstract interface for working with streaming data in Node.js. The stream module provides a base API that makes it easy to build objects that implement the stream interface.
+
+There are many stream objects provided by Node.js. For instance, a request to an HTTP server and process.stdout are both stream instances.
+
+Streams can be readable, writable, or both. All streams are instances of EventEmitter.
+
+The stream module can be accessed using:
+
+const stream = require('stream');
+While it is important to understand how streams work, the stream module itself is most useful for developers that are creating new types of stream instances. Developers who are primarily consuming stream objects will rarely need to use the stream module directly.
+
+Organization of this Document#
+This document is divided into two primary sections with a third section for additional notes. The first section explains the elements of the stream API that are required to use streams within an application. The second section explains the elements of the API that are required to implement new types of streams.
+
+Types of Streams#
+There are four fundamental stream types within Node.js:
+
+Writable - streams to which data can be written (for example, fs.createWriteStream()).
+Readable - streams from which data can be read (for example, fs.createReadStream()).
+Duplex - streams that are both Readable and Writable (for example, net.Socket).
+Transform - Duplex streams that can modify or transform the data as it is written and read (for example, zlib.createDeflate()).
+Additionally, this module includes the utility functions pipeline and finished.
